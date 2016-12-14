@@ -1,6 +1,7 @@
 // Copyright (c) 2016 Lightricks. All rights reserved.
 // Created by Daniel Moskovich & Neria Saada.
 
+#include "Session.h"
 NS_ASSUME_NONNULL_BEGIN
 
 /// Object responsible for a file system where arrays of sessions are stored

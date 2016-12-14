@@ -4,24 +4,26 @@
 #import <Foundation/Foundation.h>
 
 #import <Operation.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
+/// A mutable history of \c Operation events.
 @protocol Session <NSObject>
 
 /// Adds an operation given by \c id<Operation> to the end of the list of operations contained
 /// in the session.
 - (void)addOperation:id<Operation>;
 
-/// Outputs the current image.
-- (UIImage *)currentImage;
+/// Erase all data in the current session.
+- (void)clearSession;
 
-/// Outputs the image by undoing the most recent operation on the current image. Returns
-/// nil if there is no previous image.
-- (nullable UIImage *)previousImage;
+/// Outputs the next \c Operation in the session. Returns \c nil if such an \c Operation
+/// does not exist.
+- (nullable id<Operation> *)nextOperation;
 
-/// Outputs the image by performing the next operation on the current image. Returns
-/// nil if there is no next image.
-- (nullable UIImage *)nextImage;
+/// Outputs the previous \c Operation in the session. Returns \c nil if such an \c Operation
+/// does not exist.
+- (nullable id<Operation> *)previousOperation;
 
 @end
 
