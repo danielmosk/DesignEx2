@@ -10,9 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// A mutable history of \c Operation events.
 @protocol Session <NSObject>
 
-/// Adds an operation given by \c id<Operation> to the end of the list of operations contained
-/// in the session.
-- (void)addOperation:id<Operation>;
+/// Appends \c operation to the end of the list of operations contained in the session.
+- (void)addOperation:id<Operation> *operation;
 
 /// Erase all data in the current session.
 - (void)clearSession;
