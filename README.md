@@ -28,12 +28,12 @@ outputTexture = [brightnessTool performOnTexture:inputTexture];
 [imageSessionManager addOperation:[[UpdatingOperation alloc] initWithTool:brightnessTool]];
 
 // Undo operation
-[imageSessionManager undowithCallback:^(operation, error){
+[imageSessionManager undowithCallback:^(operation, error) {
   [toolManager doOperation:operation];   //{"update brightness_0 value:0.5"}
 };
 
 // Redo operation
-[imageSessionManager redowithCallback:^(operation, error){
+[imageSessionManager redowithCallback:^(operation, error) {
   [toolManager doOperation:operation]   //{"update brightness_0 value:0.7"}
 };
 
@@ -46,7 +46,8 @@ outputTexture = [brightnessTool performOnTexture:inputTexture];
 [imageSessionManager loadSessions]
 
 // Restore image
-inputTexture = imageSessionManager.texture: //
+inputTexture = imageSessionManager.texture;
+
 // Undo/Redo loop
 [imageSessionManager redowithCallback:^(operation, error){
   [toolManager doOperation:operation];
